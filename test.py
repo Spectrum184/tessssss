@@ -4,10 +4,10 @@ import json
 import time
 
 # Number of pages to crawl
-num_pages = 900
+num_pages = 10
 
 # URL template for Google search results
-url_template = 'https://www.google.com/search?q=site:https://en.ac-illust.com/creator-profile/&start={}'
+url_template = 'https://www.google.com/search?q=site:https://en.photo-ac.com/creator-profile/&start={}'
 
 # List to store URLs
 urls = []
@@ -22,12 +22,12 @@ for i in range(num_pages):
         href = a.get('href')
         if href.startswith('/url?q='):
             url = href[7:].split('&')[0]
-            if "https://en.ac-illust.com/creator-profile" in url:
+            if "https://en.photo-ac.com/creator-profile" in url:
                 urls.append(url)
 
     time.sleep(5)
 
 # Save URLs to a JSON file
-with open('urls.json', 'w') as f:
+with open('urls-1.json', 'w') as f:
     json.dump(urls, f)
 
